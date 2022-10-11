@@ -3,7 +3,12 @@
     {{- if site.Copyright }}
     <span>{{ site.Copyright | markdownify }}</span>
     {{- else }}
-    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+    <p>
+        &copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a>
+    </p>
+    {{- end }}
+    {{- with .Site.Params.imprint }}
+    <p><a href="{{ .url }}">{{ .name }}</a></p>
     {{- end }}
     <span>
         Powered by
